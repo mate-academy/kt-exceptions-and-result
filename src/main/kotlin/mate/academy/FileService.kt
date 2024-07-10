@@ -1,7 +1,6 @@
 package mate.academy
 
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
 import kotlin.Result
 import kotlin.Result as Result1

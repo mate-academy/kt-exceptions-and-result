@@ -8,7 +8,7 @@ class FileService {
         return try {
             Result.success(File(fileName).readText().uppercase())
         } catch (e: IOException) {
-            Result.failure(IOException("File does not exist or is not a valid file $fileName"))
+            Result.failure(IOException("File does not exist or is not a valid file ${e.message}"))
         }
     }
 

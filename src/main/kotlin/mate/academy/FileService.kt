@@ -4,7 +4,6 @@ import java.io.File
 import java.io.IOException
 
 class FileService {
-    @Throws(IOException::class)
     fun readFile(fileName: String): Result<String> {
         return runCatching {
             File(fileName).readText().uppercase()

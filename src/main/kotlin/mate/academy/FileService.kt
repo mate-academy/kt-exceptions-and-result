@@ -5,23 +5,16 @@ import java.io.IOException
 
 class FileService {
     fun readFile(fileName: String): Result<String> {
-        try {
-            val result = runCatching {
-                val file = File(fileName)
-                file.readText().uppercase()
-            }
-            return result
-        } catch (e : Exception) {
-            throw IOException("")
+        return runCatching {
+            val file = File(fileName)
+            file.readText().uppercase()
         }
     }
 
     fun processFileContent(fileName: String): String {
-        return try {
-            val content = readFile(fileName).getOrThrow()
-            "Uppercase content:\n${content.uppercase()}"
-        } catch (e : Exception) {
-            "Error: Cannot read file - ${e.message}"
-        }
+        return readFile(fileName).fold(
+            onSuccess = { content -> "Uppercase content:\n$content" },
+            onFailure = { e -> "Error: Cannot read file - ${e.message}" }
+        )
     }
 }

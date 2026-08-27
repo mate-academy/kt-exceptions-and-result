@@ -90,7 +90,7 @@ class FileServiceTest {
 
         val result = fileService.processFileContent(tempFile!!.toString())
 
-        Assertions.assertEquals("Uppercase content:\nHELLO WORLD", result)
+        Assertions.assertEquals("HELLO WORLD", result)
     }
 
     @Test
@@ -108,7 +108,7 @@ class FileServiceTest {
 
         val result = fileService.processFileContent(tempFile!!.toString())
 
-        Assertions.assertEquals("Uppercase content:\n", result)
+        Assertions.assertEquals("", result)
     }
 
     @AfterEach

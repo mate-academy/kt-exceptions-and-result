@@ -1,11 +1,15 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.9.20"
     application
-    id("io.gitlab.arturbosch.detekt") version "1.23.3"
+    id("io.gitlab.arturbosch.detekt") version "1.23.4"
 }
 
 group = "mate.academy"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("mate.academy.MainKt")
+}
 
 repositories {
     mavenCentral()
@@ -20,7 +24,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(21)
 }
 
 detekt {
